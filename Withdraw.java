@@ -1,12 +1,12 @@
 package com.abdibrokhim;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.abdibrokhim.Main.sc;
 
 public class Withdraw {
-    public static void withdrawCash()
-    {
+    public static void withdrawCash() throws IOException {
 
         System.out.println("\nChoose an option");
         System.out.println("[1] -> 50 000");
@@ -15,13 +15,12 @@ public class Withdraw {
         System.out.println("[4] -> 300 000");
         System.out.println("[5] -> 400 000");
         System.out.println("[6] -> 500 000");
-        System.out.println("\n[?] -> ");
+        System.out.print("\n[?] -> ");
 
         option();
     }
 
-    public static void option()
-    {
+    public static void option() throws IOException {
 
         int option = sc.nextInt();
         int initialAmount = 50000;
