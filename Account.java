@@ -1,90 +1,82 @@
 package com.abdibrokhim;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
+import java.util.Objects;
+
+import static com.abdibrokhim.Main.sc;
 
 class Account {
-    private ArrayList userInputCardNum;
-    private ArrayList userInputName;
-    Scanner sc = new Scanner(System.in);
-    
-    DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
-    private ArrayList clientsName = new ArrayList() {};
-    private ArrayList clientsCardNum = new ArrayList() {};
-    private ArrayList clientsCardPinCode = new ArrayList() {};
 
-    private ArrayList clientsBalance = new ArrayList() {};
+    private static ArrayList<String> clientsName;
+    private static ArrayList<String> clientsCardNum;
+    private static ArrayList<String> clientsCardPinCode;
+    private static ArrayList<String> clientsBalance;
 
-    Account(){}
+    static ArrayList<String> client = new ArrayList<>();
 
-//    public Account(ArrayList clientsName, ArrayList clientsCardNum, ArrayList clientsCardPinCode) {
-//        this.clientsName = clientsName;
-//        this.clientsCardNum = clientsCardNum;
-//        this.clientsCardPinCode = clientsCardPinCode;
-////        this.clientsBalance = clientsBalance;
-//    }
+    public Account(ArrayList<String> clientsName, ArrayList<String> clientsCardNum, ArrayList<String> clientsCardPinCode, ArrayList<String> clientsBalance) {
+        Account.clientsName = clientsName;
+        Account.clientsCardPinCode = clientsCardNum;
+        Account.clientsCardNum = clientsCardNum;
+        Account.clientsBalance = clientsBalance;
 
-//    public Account(String userInputName, String userInputCardNum) {
-//        this.userInputName = clientsName;
-//        this.userInputCardNum = clientsCardNum;
-//}
-    static Object result = null;
+    }
 
-    Menu menu = new Menu();
-    public void signIn(ArrayList clientsName, ArrayList clientsCardNum) {
-//        for (int i = 0; i < clientsName.size(); i++)
-        int i=0;
+    public static void setClientsName(ArrayList<String> clientsName) {
+        Account.clientsName = clientsName;
+    }
+
+    public static ArrayList<String> getClientsName() {
+        return clientsName;
+    }
+
+    public static void setClientsCardNum(ArrayList<String> clientsCardNum) {
+        Account.clientsCardNum = clientsCardNum;
+    }
+
+    public ArrayList<String> getClientsCardNum() {
+        return clientsCardNum;
+    }
+
+    public static void setClientsCardPinCode(ArrayList<String> clientsCardPinCode) {
+        Account.clientsCardPinCode = clientsCardPinCode;
+    }
+
+    public ArrayList<String> getClientsCardPinCode() {
+        return clientsCardPinCode;
+    }
+
+    public static void setClientsBalance(ArrayList<String> clientsBalance) {
+        Account.clientsBalance = clientsBalance;
+    }
+
+    public static ArrayList<String> getClientsBalance() {
+        return clientsBalance;
+    }
+
+    public static void signIn() {
         boolean end = false;
-        while(!end) {
-            try {
-                System.out.print("\nInput Name: ");
-                String userInputName = sc.nextLine();
-                System.out.print("\nInput Card: ");
-                String userInputCardNum = sc.nextLine();
-                while(i < 3) {
-                    if (clientsName.get(i) == userInputName && clientsCardNum.get(i) == userInputCardNum) {
-//                    if (clientsName.contains(userInputName) && clientsCardNum.contains(userInputCardNum)) {
-                        result = clientsCardPinCode.get(i);
-                        menu.mainMenu(result);
-                        end = true;
-                        break;
-                    }
-                    i++;
-                }
-                if (!end) {
-                    System.out.println("Error");
-//                    end = true;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Error Error");
+
+        System.out.print("\nInput Name: ");
+        String userInputName = sc.nextLine();
+        System.out.print("\nInput Card: ");
+        String userInputCardNum = sc.nextLine();
+        for(int i = 0; i < 3; i++){
+            if (Objects.equals(clientsName.get(i), userInputName) && Objects.equals(clientsCardNum.get(i), userInputCardNum)) {
+                client.add(clientsName.get(i));
+                client.add(clientsCardNum.get(i));
+                client.add(clientsCardPinCode.get(i));
+                client.add(clientsBalance.get(i));
+                Menu.mainMenu();
+                end = true;
+                break;
             }
-//        System.out.println("Fail");
+        }
+        if (!end)
+        {
+            System.out.println("Invalid");
+            signIn();
         }
     }
 }
-
-//    public ArrayList getClientsName() {
-//        return clientsName;
-//    }
-//
-//    public void setClientsName(ArrayList clientsName) {
-//        this.clientsName = clientsName;
-//    }
-//
-//    public ArrayList getClientsCardNum() {
-//        return clientsCardNum;
-//    }
-//
-//    public void setClientsCardNum(ArrayList clientsCardNum) {
-//        this.clientsCardNum = clientsCardNum;
-//    }
-//
-//    public ArrayList getClientsCardPinCode() {
-//        return clientsCardPinCode;
-//    }
-//
-//    public void setClientsCardPinCode(ArrayList clientsCardPinCode) {
-//        this.clientsCardPinCode = clientsCardPinCode;
-//    }
