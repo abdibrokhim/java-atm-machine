@@ -1,14 +1,13 @@
 package com.abdibrokhim;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import static com.abdibrokhim.Main.sc;
 
 public class Withdraw {
-    public static void withdrawCash() throws IOException {
+    public static void withdrawCash() throws IOException
+    {
 
-        System.out.println("\nChoose an option");
+        System.out.println("\nCHOOSE AN OPTION\n");
         System.out.println("[1] -> 50 000");
         System.out.println("[2] -> 100 000");
         System.out.println("[3] -> 200 000");
@@ -21,11 +20,9 @@ public class Withdraw {
     }
 
     public static void option() throws IOException {
-
         int option = sc.nextInt();
         int initialAmount = 50000;
         int remindCash;
-//        ArrayList<String> currentCash = Account.getClientsBalance();
         String currentCash = Account.client.get(3);
 
         switch (option) {
@@ -36,7 +33,7 @@ public class Withdraw {
                     Account.client.add(remindCashStr);
                     Paper.paper();
                 } else {
-                    System.out.println("Insufficient Balance");
+                    lack();
                 }
             }
             case 2 -> {
@@ -46,7 +43,7 @@ public class Withdraw {
                     Account.client.add(remindCashStr);
                     Paper.paper();
                 } else {
-                    System.out.println("Insufficient Balance");
+                    lack();
                 }
             }
             case 3 -> {
@@ -56,7 +53,7 @@ public class Withdraw {
                     Account.client.add(remindCashStr);
                     Paper.paper();
                 } else {
-                    System.out.println("Insufficient Balance");
+                    lack();
                 }
             }
             case 4 -> {
@@ -66,7 +63,7 @@ public class Withdraw {
                     Account.client.add(remindCashStr);
                     Paper.paper();
                 } else {
-                    System.out.println("Insufficient Balance");
+                    lack();
                 }
             }
             case 5 -> {
@@ -76,7 +73,7 @@ public class Withdraw {
                     Account.client.add(remindCashStr);
                     Paper.paper();
                 } else {
-                    System.out.println("Insufficient Balance");
+                    lack();
                 }
             }
             case 6 -> {
@@ -86,10 +83,20 @@ public class Withdraw {
                     Account.client.add(remindCashStr);
                     Paper.paper();
                 } else {
-                    System.out.println("Insufficient Balance");
+                    lack();
                 }
             }
-            default -> System.out.println("\nInvalid Choice");
+            default -> Handle.error();
         }
+    }
+
+    public static void showBalance()
+    {
+        System.out.println("\nBALANCE: " + Account.client.get(3));
+    }
+
+    public static void lack()
+    {
+        System.out.println("\nINSUFFICIENT BALANCE\n");
     }
 }

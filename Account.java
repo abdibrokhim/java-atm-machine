@@ -2,21 +2,19 @@ package com.abdibrokhim;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.Objects;
-
 import static com.abdibrokhim.Main.sc;
 
-class Account {
-
+public class Account
+{
     private static ArrayList<String> clientsName;
     private static ArrayList<String> clientsCardNum;
     private static ArrayList<String> clientsCardPinCode;
     private static ArrayList<String> clientsBalance;
-
     static ArrayList<String> client = new ArrayList<>();
 
-    public Account(ArrayList<String> clName, ArrayList<String> clNums, ArrayList<String> clPin, ArrayList<String> clCash) {
+    public Account(ArrayList<String> clName, ArrayList<String> clNums, ArrayList<String> clPin, ArrayList<String> clCash)
+    {
         clientsName = clName;
         clientsCardNum = clNums;
         clientsCardPinCode = clPin;
@@ -24,47 +22,19 @@ class Account {
 
     }
 
-//    public static void setClientsName(ArrayList<String> clNames) {
-//        clientsName = clNames;
-//    }
-//
-//    public static ArrayList<String> getClientsName() {
-//        return clientsName;
-//    }
-//
-//    public static void setClientsCardNum(ArrayList<String> clientsCardNum) {
-//        Account.clientsCardNum = clientsCardNum;
-//    }
-//
-//    public ArrayList<String> getClientsCardNum() {
-//        return clientsCardNum;
-//    }
-//
-//    public static void setClientsCardPinCode(ArrayList<String> clientsCardPinCode) {
-//        Account.clientsCardPinCode = clientsCardPinCode;
-//    }
-//
-//    public ArrayList<String> getClientsCardPinCode() {
-//        return clientsCardPinCode;
-//    }
-//
-//    public static void setClientsBalance(ArrayList<String> clientsBalance) {
-//        Account.clientsBalance = clientsBalance;
-//    }
-//
-//    public static ArrayList<String> getClientsBalance() {
-//        return clientsBalance;
-//    }
-
-    public static void signIn() throws IOException {
+    public static void signIn() throws IOException
+    {
         boolean end = false;
 
-        System.out.print("\nInput Name: ");
+        System.out.print("\nINPUT USER NAME: ");
         String userInputName = sc.nextLine();
-        System.out.print("\nInput Card: ");
+        System.out.print("\nINPUT CARD NUMBER: ");
         String userInputCardNum = sc.nextLine();
-        for(int i = 0; i < 10; i++){
-            if (Objects.equals(clientsName.get(i), userInputName) && Objects.equals(clientsCardNum.get(i), userInputCardNum)) {
+
+        for(int i = 0; i < 10; i++)
+        {
+            if (Objects.equals(clientsName.get(i), userInputName) && Objects.equals(clientsCardNum.get(i), userInputCardNum))
+            {
                 client.add(clientsName.get(i));
                 client.add(clientsCardNum.get(i));
                 client.add(clientsCardPinCode.get(i));
@@ -77,7 +47,7 @@ class Account {
         }
         if (!end)
         {
-            System.out.println("Invalid");
+            System.out.println("\nINVALID USER NAME OR CARD NUMBER\n");
             signIn();
         }
     }

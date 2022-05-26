@@ -6,10 +6,9 @@ import java.util.Objects;
 import static com.abdibrokhim.Main.sc;
 
 public class Pin {
-    public static void changePin() throws IOException {
-        System.out.println(Account.client);
-
-        System.out.println("Input new PIN");
+    public static void changePin() throws IOException
+    {
+        System.out.println("\nINPUT NEW PIN CODE\n");
         System.out.print("[****] -> ");
         String pin = sc.next();
 
@@ -20,10 +19,8 @@ public class Pin {
                 GFG.clPins.set(i, pin);
             }
         }
-
         Account.client.remove(3);
         Account.client.remove(3);
-        System.out.println(Account.client);
         GFG.writeFilePin(GFG.clPins);
     }
 }
