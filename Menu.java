@@ -24,10 +24,10 @@ public class Menu {
 
         switch (option) {
             case 1 -> Pin.changePin();
-//            case 2 -> connectSms();
-//            case 3 -> showBalance();
+            case 2 -> Paper.connectSms();
+            case 3 -> Paper.showBalance();
             case 4 -> Withdraw.withdrawCash();
-//            case 5 -> exit();
+            case 5 -> Paper.exit();
             default -> System.out.println("\nInvalid Choice");
         }
     }

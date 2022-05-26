@@ -16,6 +16,7 @@ public class Main
         GFG.readFilePinCodes();
         GFG.readFileCardNums();
         GFG.readFileBalance();
+        GFG.readFilPhoneNums();
 //        GFG.writeFile();
 //        Database.database();
         GFG.sentValue();
