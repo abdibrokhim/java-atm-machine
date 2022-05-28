@@ -4,22 +4,23 @@ import java.io.IOException;
 import static com.abdibrokhim.Main.sc;
 
 public class Withdraw {
-    public static void withdrawCash() throws IOException
-    {
-
+    public static void withdrawCash() throws IOException, InterruptedException {
+        Thread.sleep(2000);
         System.out.println("\nCHOOSE AN OPTION\n");
+        Thread.sleep(2000);
         System.out.println("[1] -> 50 000");
         System.out.println("[2] -> 100 000");
         System.out.println("[3] -> 200 000");
         System.out.println("[4] -> 300 000");
         System.out.println("[5] -> 400 000");
         System.out.println("[6] -> 500 000");
+        Thread.sleep(1000);
         System.out.print("\n[?] -> ");
 
         option();
     }
 
-    public static void option() throws IOException {
+    public static void option() throws IOException, InterruptedException {
         int option = sc.nextInt();
         int initialAmount = 50000;
         int remindCash;
@@ -90,13 +91,17 @@ public class Withdraw {
         }
     }
 
-    public static void showBalance()
-    {
+    public static void showBalance() throws InterruptedException {
+        Thread.sleep(1000);
         System.out.println("\nBALANCE: " + Account.client.get(3));
+        Thread.sleep(1000);
+//        Menu.mainMenu();
     }
 
-    public static void lack()
-    {
+    public static void lack() throws InterruptedException {
+        Thread.sleep(1000);
         System.out.println("\nINSUFFICIENT BALANCE\n");
+        Thread.sleep(1000);
+//        Menu.mainMenu();
     }
 }

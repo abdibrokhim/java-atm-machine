@@ -6,8 +6,10 @@ import java.util.Objects;
 import static com.abdibrokhim.Main.sc;
 
 public class SMS {
-    public static void connectSms() throws IOException {
-        System.out.print("\nINPUT PHONE NUMBER: ");
+    public static void connectSms() throws IOException, InterruptedException {
+        Thread.sleep(1000);
+        System.out.println("\nINPUT PHONE NUMBER");
+        System.out.print("[****] -> ");
         String phoneNum = sc.next();
 
         for(int i = 0; i < 10; i++)

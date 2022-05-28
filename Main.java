@@ -6,9 +6,7 @@ import java.util.Scanner;
 public class Main
 {
     static Scanner sc = new Scanner(System.in);
-
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException, InterruptedException {
         intro();
 
         GFG.readFileNames();
@@ -21,8 +19,8 @@ public class Main
         Account.signIn();
     }
 
-    public static void intro()
-    {
+    public static void intro() throws InterruptedException {
+        Thread.sleep(2000);
         System.out.println("\nWELCOME\n");
     }
 }

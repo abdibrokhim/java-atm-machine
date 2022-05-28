@@ -7,7 +7,8 @@ import static com.abdibrokhim.Main.sc;
 
 public class Account
 {
-    private static ArrayList<String> clientsName;
+    static int tries = 0;
+    static ArrayList<String> clientsName;
     private static ArrayList<String> clientsCardNum;
     private static ArrayList<String> clientsCardPinCode;
     private static ArrayList<String> clientsBalance;
@@ -22,32 +23,41 @@ public class Account
 
     }
 
-    public static void signIn() throws IOException
-    {
+    public static void signIn() throws IOException, InterruptedException {
         boolean end = false;
-
-        System.out.print("\nINPUT USER NAME: ");
-        String userInputName = sc.nextLine();
-        System.out.print("\nINPUT CARD NUMBER: ");
+        Thread.sleep(1000);
+        System.out.println("INPUT CARD NUMBER");
+        System.out.print("[****] -> ");
         String userInputCardNum = sc.nextLine();
+        Thread.sleep(1000);
+        System.out.println("\nINPUT PIN CODE: ");
+        System.out.print("[****] -> ");
+        String userInputPinCode = sc.nextLine();
 
         for(int i = 0; i < 10; i++)
         {
-            if (Objects.equals(clientsName.get(i), userInputName) && Objects.equals(clientsCardNum.get(i), userInputCardNum))
+            if (Objects.equals(clientsCardNum.get(i), userInputCardNum) && Objects.equals(clientsCardPinCode.get(i), userInputPinCode))
             {
                 client.add(clientsName.get(i));
                 client.add(clientsCardNum.get(i));
                 client.add(clientsCardPinCode.get(i));
                 client.add(clientsBalance.get(i));
                 client.add(Integer.toString(i));
-                Menu.mainMenu();
                 end = true;
+                Menu.mainMenu();
                 break;
             }
         }
         if (!end)
         {
-            System.out.println("\nINVALID USER NAME OR CARD NUMBER\n");
+            if(tries >= 2){
+                Thread.sleep(2000);
+                System.out.println("\nYOUR CARD WAS BLOCKED\n");
+                Handle.exit();
+            }
+            Thread.sleep(2000);
+            System.out.println("\nINVALID CARD NUMBER OR PIN CODE\n");
+            tries++;
             signIn();
         }
     }

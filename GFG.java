@@ -64,7 +64,7 @@ public class GFG {
         sc.close();
     }
 
-    public static void writeFileBalance(ArrayList<String> clCash) throws IOException {
+    public static void writeFileBalance(ArrayList<String> clCash) throws IOException, InterruptedException {
         FileWriter wr = new FileWriter("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/balance.txt");
         for (String cash : clCash) {
             wr.write(String.valueOf(cash));
@@ -74,7 +74,7 @@ public class GFG {
         Handle.success();
     }
 
-    public static void writeFilePin(ArrayList<String> clPins) throws IOException {
+    public static void writeFilePin(ArrayList<String> clPins) throws IOException, InterruptedException {
         FileWriter wr = new FileWriter("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/pincode.txt");
         for (String pin : clPins) {
             wr.write(String.valueOf(pin));
@@ -84,7 +84,7 @@ public class GFG {
         Handle.success();
     }
 
-    public static void writeFilePhone(ArrayList<String> clPhone) throws IOException {
+    public static void writeFilePhone(ArrayList<String> clPhone) throws IOException, InterruptedException {
         FileWriter wr = new FileWriter("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/phonenums.txt");
         for (String phNum : clPhone) {
             wr.write(String.valueOf(phNum));
