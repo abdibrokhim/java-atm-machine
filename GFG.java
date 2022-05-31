@@ -13,9 +13,10 @@ public class GFG {
     static ArrayList<String> clNums = new ArrayList<>() {};
     static ArrayList<String> clCash = new ArrayList<>() {};
     static ArrayList<String> clPhone = new ArrayList<>() {};
+    static String pathfortxt = System.getProperty("user.dir");
 
     public static void readFileNames() throws FileNotFoundException {
-        File file = new File("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/names.txt");
+        File file = new File(pathfortxt + "/names.txt");
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()) {
             String data = sc.nextLine();
@@ -25,7 +26,7 @@ public class GFG {
     }
 
     public static void readFileCardNums() throws FileNotFoundException {
-        File file = new File("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/cardnums.txt");
+        File file = new File(pathfortxt + "/cardnums.txt");
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()) {
             String data = sc.nextLine();
@@ -35,7 +36,7 @@ public class GFG {
     }
 
     public static void readFilePinCodes() throws FileNotFoundException {
-        File file = new File("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/pincode.txt");
+        File file = new File(pathfortxt + "/pincode.txt");
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()) {
             String data = sc.nextLine();
@@ -45,7 +46,7 @@ public class GFG {
     }
 
     public static void readFileBalance() throws FileNotFoundException {
-        File file = new File("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/balance.txt");
+        File file = new File(pathfortxt + "/balance.txt");
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()) {
             String data = sc.nextLine();
@@ -55,7 +56,7 @@ public class GFG {
     }
 
     public static void readFilPhoneNums() throws FileNotFoundException {
-        File file = new File("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/phonenums.txt");
+        File file = new File(pathfortxt + "/phonenums.txt");
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()) {
             String data = sc.nextLine();
@@ -64,8 +65,8 @@ public class GFG {
         sc.close();
     }
 
-    public static void writeFileBalance(ArrayList<String> clCash) throws IOException, InterruptedException {
-        FileWriter wr = new FileWriter("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/balance.txt");
+    public static void writeFileBalance(ArrayList<String> clCash) throws IOException {
+        FileWriter wr = new FileWriter(pathfortxt + "/balance.txt");
         for (String cash : clCash) {
             wr.write(String.valueOf(cash));
             wr.write("\n");
@@ -74,8 +75,8 @@ public class GFG {
         Handle.success();
     }
 
-    public static void writeFilePin(ArrayList<String> clPins) throws IOException, InterruptedException {
-        FileWriter wr = new FileWriter("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/pincode.txt");
+    public static void writeFilePin(ArrayList<String> clPins) throws IOException {
+        FileWriter wr = new FileWriter(pathfortxt + "/pincode.txt");
         for (String pin : clPins) {
             wr.write(String.valueOf(pin));
             wr.write("\n");
@@ -84,8 +85,8 @@ public class GFG {
         Handle.success();
     }
 
-    public static void writeFilePhone(ArrayList<String> clPhone) throws IOException, InterruptedException {
-        FileWriter wr = new FileWriter("/Users/abdibrokhim/IdeaProjects/App/src/com/abdibrokhim/phonenums.txt");
+    public static void writeFilePhone(ArrayList<String> clPhone) throws IOException {
+        FileWriter wr = new FileWriter(pathfortxt + "/phonenums.txt");
         for (String phNum : clPhone) {
             wr.write(String.valueOf(phNum));
             wr.write("\n");
